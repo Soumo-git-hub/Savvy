@@ -39,7 +39,7 @@ To utilize Savvy, follow these steps:
 2. **Compile the Code**: Compile the C++ code using your preferred compiler.
 
    ```bash
-   g++ main.cpp -o savvy
+   g++ sav.cpp -o savvy
    ```
 
 3. **Run the Program**: Execute the compiled binary to launch the Savvy application.
