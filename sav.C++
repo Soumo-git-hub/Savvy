@@ -338,11 +338,28 @@ vector<Laptop> performSearching(const vector<Laptop> &laptops)
     return searchResults; // Return the vector of search results
 }
 
+void displayTopLaptops(const vector<Laptop> &laptops, int maxLaptops)
+{
+    // Sorting laptops based on user-selected criteria
+    sort(laptops.begin(), laptops.end(), compareWithMultipleCriteria);
+
+    // Display sorted laptops (limited to maxLaptops)
+    cout << "\nTop " << maxLaptops << " laptops based on selected criteria:" << endl;
+    int count = 0;
+    for (const auto &laptop : laptops)
+    {
+        if (count >= maxLaptops)
+        {
+            break;
+        }
+        laptop.display();
+        cout << endl;
+        count++;
+    }
+}
+
 int main()
 {
-    cout << "\n                                                      --------------------------------------------------------------------------------" << endl;
-    cout << "                                                                                    WELCOME TO SAVVY" << endl;
-    cout << "\n                                    -----------------------------------------------------------------------------------" << endl;
     // Create a vector of Laptop objects and initialize them with some sample data
     vector<Laptop> laptops = {
         {"MacBook Pro", "Apple", 2399, "Intel Core i9 2.3 GHz", "Intel", 8, 16, 512, 100, 16, 2, "AMD Radeon Pro 5600M", true, false, false},
@@ -399,7 +416,8 @@ int main()
             // Feature groups
             vector<FeatureGroup> groups = {
                 {"Performance", {"processor", "graphicsCard", "ram"}},
-                {"Portability", {"weight", "screen", "battery"}}};
+                {"Portability", {"weight", "screen", "battery"}},
+                {"Usage", {"powerUser", "generalUse", "lightTasks"}}};
 
             // Ask the user to rate the importance of each feature
             cout << "Rate the importance of each feature on a scale of 1-5:" << endl;
@@ -447,22 +465,7 @@ int main()
             cout << "\nEnter the maximum number of laptops to display: ";
             cin >> maxLaptops;
 
-            // Sorting laptops based on user-selected criteria
-            sort(laptops.begin(), laptops.end(), compareWithMultipleCriteria);
-
-            // Display sorted laptops (limited to maxLaptops)
-            cout << "\nTop " << maxLaptops << " laptops based on selected criteria:" << endl;
-            int count = 0;
-            for (const auto &laptop : laptops)
-            {
-                if (count >= maxLaptops)
-                {
-                    break;
-                }
-                laptop.display();
-                cout << endl;
-                count++;
-            }
+            displayTopLaptops(laptops, maxLaptops);
 
             // Ask the user if they want to see similar laptops
             cout << "\nWould you like to see similar laptops to any of the displayed ones? (yes/no): ";
