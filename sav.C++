@@ -56,7 +56,7 @@ public:
     double convertToINR(double priceInDollars) const
     {
         // Current exchange rate: 1 USD = 73.3 INR (approx)
-        return priceInDollars * 73.3;
+        return priceInDollars * 83.3;
     }
 
     // Method to scale price by a factor
@@ -338,28 +338,11 @@ vector<Laptop> performSearching(const vector<Laptop> &laptops)
     return searchResults; // Return the vector of search results
 }
 
-void displayTopLaptops(const vector<Laptop> &laptops, int maxLaptops)
-{
-    // Sorting laptops based on user-selected criteria
-    sort(laptops.begin(), laptops.end(), compareWithMultipleCriteria);
-
-    // Display sorted laptops (limited to maxLaptops)
-    cout << "\nTop " << maxLaptops << " laptops based on selected criteria:" << endl;
-    int count = 0;
-    for (const auto &laptop : laptops)
-    {
-        if (count >= maxLaptops)
-        {
-            break;
-        }
-        laptop.display();
-        cout << endl;
-        count++;
-    }
-}
-
 int main()
 {
+    cout << "\n                                                      --------------------------------------------------------------------------------" << endl;
+    cout << "                                                                                    WELCOME TO SAVVY" << endl;
+    cout << "\n                                    -----------------------------------------------------------------------------------" << endl;
     // Create a vector of Laptop objects and initialize them with some sample data
     vector<Laptop> laptops = {
         {"MacBook Pro", "Apple", 2399, "Intel Core i9 2.3 GHz", "Intel", 8, 16, 512, 100, 16, 2, "AMD Radeon Pro 5600M", true, false, false},
@@ -371,7 +354,8 @@ int main()
         {"XPS 15", "Dell", 1899, "Intel Core i7 2.6 GHz", "Intel", 6, 16, 512, 97, 15.6, 2, "Nvidia GTX 1650", true, false, false},
         {"ThinkPad X1 Carbon", "Lenovo", 1499, "Intel Core i5 1.6 GHz", "Intel", 4, 8, 256, 51, 14, 1.1, "Intel UHD Graphics", false, true, false},
         {"Aspire 5", "Acer", 549, "Intel Core i3 1.2 GHz", "Intel", 2, 4, 128, 48, 15.6, 1.9, "Intel UHD Graphics 620", false, false, true},
-        {"ROG Zephyrus G14", "Asus", 1449, "AMD Ryzen 9 3.0 GHz", "AMD", 8, 16, 512, 76, 14, 1.6, "Nvidia RTX 3060", true, false, false}};
+        {"ROG Zephyrus G14", "Asus", 1449, "AMD Ryzen 9 3.0 GHz", "AMD", 8, 16, 512, 76, 14, 1.6, "Nvidia RTX 3060", true, false, false},
+        {"Nitro V", "Acer", 924, "Intel Core i5 3.4 GHz", "Intel", 8, 16, 512, 57, 15.6, 2, "Nvidia RTX 4050", true, false, false}};
 
     char choice;
     bool searched = false; // To track if search operation has been performed
@@ -416,8 +400,7 @@ int main()
             // Feature groups
             vector<FeatureGroup> groups = {
                 {"Performance", {"processor", "graphicsCard", "ram"}},
-                {"Portability", {"weight", "screen", "battery"}},
-                {"Usage", {"powerUser", "generalUse", "lightTasks"}}};
+                {"Portability", {"weight", "screen", "battery"}}};
 
             // Ask the user to rate the importance of each feature
             cout << "Rate the importance of each feature on a scale of 1-5:" << endl;
@@ -465,7 +448,22 @@ int main()
             cout << "\nEnter the maximum number of laptops to display: ";
             cin >> maxLaptops;
 
-            displayTopLaptops(laptops, maxLaptops);
+            // Sorting laptops based on user-selected criteria
+            sort(laptops.begin(), laptops.end(), compareWithMultipleCriteria);
+
+            // Display sorted laptops (limited to maxLaptops)
+            cout << "\nTop " << maxLaptops << " laptops based on selected criteria:" << endl;
+            int count = 0;
+            for (const auto &laptop : laptops)
+            {
+                if (count >= maxLaptops)
+                {
+                    break;
+                }
+                laptop.display();
+                cout << endl;
+                count++;
+            }
 
             // Ask the user if they want to see similar laptops
             cout << "\nWould you like to see similar laptops to any of the displayed ones? (yes/no): ";
