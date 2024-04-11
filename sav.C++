@@ -355,7 +355,7 @@ int main()
         {"ThinkPad X1 Carbon", "Lenovo", 1499, "Intel Core i5 1.6 GHz", "Intel", 4, 8, 256, 51, 14, 1.1, "Intel UHD Graphics", false, true, false},
         {"Aspire 5", "Acer", 549, "Intel Core i3 1.2 GHz", "Intel", 2, 4, 128, 48, 15.6, 1.9, "Intel UHD Graphics 620", false, false, true},
         {"ROG Zephyrus G14", "Asus", 1449, "AMD Ryzen 9 3.0 GHz", "AMD", 8, 16, 512, 76, 14, 1.6, "Nvidia RTX 3060", true, false, false},
-        {"Nitro V", "Acer", 924, "Intel Core i5 3.4 GHz", "Intel", 8, 16, 512, 57, 15.6, 2, "Nvidia RTX 4050", true, false, false}};
+        {"Nitro V", "Acer", 800, "Intel Core i5 3.4 GHz", "Intel", 8, 16, 512, 57, 15.6, 2, "Nvidia RTX 4050", true, false, false}};
 
     char choice;
     bool searched = false; // To track if search operation has been performed
