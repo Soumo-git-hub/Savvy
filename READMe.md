@@ -58,4 +58,4 @@ Contributions are welcome! If you have suggestions, enhancements, or bug fixes, 
 ## Acknowledgements
 
 
-This README provides a comprehensive overview of Savvy, its features, usage instructions, contribution guidelines, licensing information, and acknowledgments. Feel free to customize it further to suit your project's specific needs and preferences.
+This README provides a comprehensive overview of Savvy, its features, usage instructions, contribution guidelines and acknowledgments. Feel free to customize it further to suit your project's specific needs and preferences.
