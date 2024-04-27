@@ -434,7 +434,7 @@ int main()
             // Feature groups
             vector<FeatureGroup> groups = {
                 {"Performance", {"processor", "graphicsCard", "ram"}},
-                {"Portability", {"weight", "screen", "battery"}}};
+                {"Portability", {"weight"}}};
 
             // Ask the user to rate the importance of each feature
             cout << "Rate the importance of each feature on a scale of 1-5:" << endl;
