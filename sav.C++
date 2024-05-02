@@ -1,10 +1,10 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <algorithm> // for std::sort
+#include <algorithm> // for std::sort 
 #include <map>
-#include <limits> // for numeric_limits
-#include <cmath>  // for sqrt
+#include <limits> 
+#include <cmath>  
 using namespace std;
 
 // A class to represent a laptop model
@@ -16,8 +16,8 @@ public:
     string brand;
     double price;
     string processor;
-    string processorBrand; // Added processor brand
-    int cores;             // Added number of cores
+    string processorBrand; 
+    int cores;             
     int ram;
     int storage;
     int battery;
@@ -38,8 +38,8 @@ public:
         cout << "Brand: " << brand << endl;
         cout << "Price: ₹" << convertToINR(price) << endl; // Display price in Indian Rupees
         cout << "Processor: " << processor << endl;
-        cout << "Processor Brand: " << processorBrand << endl; // Display processor brand
-        cout << "Number of Cores: " << cores << endl;          // Display number of cores
+        cout << "Processor Brand: " << processorBrand << endl; 
+        cout << "Number of Cores: " << cores << endl;          
         cout << "RAM: " << ram << " GB" << endl;
         cout << "Storage: " << storage << " GB" << endl;
         cout << "Battery: " << battery << " Wh" << endl;
@@ -52,10 +52,9 @@ public:
         cout << "  For Light Tasks: " << (lightTasks ? "Yes" : "No") << endl; // Display suitability for light tasks
     }
 
-    // Method to convert price from dollars to Indian rupees
     double convertToINR(double priceInDollars) const
     {
-        // Current exchange rate: 1 USD = 73.3 INR (approx)
+        // Current exchange rate: 1 USD = 83.3 INR 
         return priceInDollars * 83.3;
     }
 
@@ -76,7 +75,6 @@ public:
         distance += pow(battery - other.battery, 2);
         distance += pow(screen - other.screen, 2);
         distance += pow(weight - other.weight, 2);
-        // More attributes can be added here for a more comprehensive similarity score
         return sqrt(distance);
     }
 
@@ -158,15 +156,15 @@ int calculateWeightedScore(const Laptop &laptop)
         }
         else if (feature == "powerUser")
         {
-            score += (laptop.powerUser ? 10 : 0) * weight; // Add weight for power users
+            score += (laptop.powerUser ? 10 : 0) * weight; 
         }
         else if (feature == "generalUse")
         {
-            score += (laptop.generalUse ? 10 : 0) * weight; // Add weight for general use
+            score += (laptop.generalUse ? 10 : 0) * weight; 
         }
         else if (feature == "lightTasks")
         {
-            score += (laptop.lightTasks ? 10 : 0) * weight; // Add weight for light tasks
+            score += (laptop.lightTasks ? 10 : 0) * weight; 
         }
     }
     return static_cast<int>(score);
@@ -268,8 +266,6 @@ void performScaling(vector<Laptop> &laptops)
 {
     double scalingFactor;
     bool validScalingFactor = false;
-
-    // Prompt the user to enter a scaling factor
     cout << "Enter scaling factor (1 for no change, less than 1 for reduction, greater than 1 for increase): ";
     cin >> scalingFactor;
 
@@ -368,12 +364,10 @@ int main()
         {"HP Pavilion 15-ec2004AX (3E3R5PA)", "HP", 990, "AMD Hexa Core Ryzen 5 3.3 GHz", "AMD", 6, 8, 512, 1920, 15.6, 1.98, "N/A", false, false, true},
         {"Xiaomi RedmiBook 15 Pro", "Xiaomi", 399, "Intel Core i5 11th Gen 3.1 GHz", "Intel", 4, 8, 512, 1920, 15.6, 1.8, "N/A", false, false, false},
         {"HP 15s-eq0500AU (440L6PA)", "HP", 410, "AMD Quad Core Ryzen 5 2.1 GHz", "AMD", 4, 8, 512, 1920, 15.6, 1.69, "N/A", false, false, false},
-        {"Apple MacBook Air M1 MGN63HN/A Ultrabook", "Apple", 72490, "Apple M1 2.9 GHz", "Apple", 8, 8, 256, 2560, 13.3, 1.29, "N/A", false, false, false},
         {"Apple MacBook Air M1 MGN93HN/A Ultrabook", "Apple", 99900, "Apple M1 2.9 GHz", "Apple", 8, 8, 256, 2560, 13.3, 1.29, "N/A", false, false, false},
         {"Asus X543MA-GQ1015T", "Asus", 790, "Intel Celeron Dual Core 1.1 GHz", "Intel", 2, 4, 1024, 1366, 15.6, 27.2, "N/A", false, false, false},
         {"Acer Aspire 7 A715-51G (NH.QGCSI.001)", "Acer", 699, "Intel Core i5 12th Gen 3.3 GHz", "Intel", 4, 8, 512, 1920, 15.6, 19.9, "N/A", false, true, true},
         {"Acer Swift X SFX16-51G (NX.AYKSI.001)", "Acer", 949, "Intel Core i5 11th Gen 2.5 GHz", "Intel", 4, 16, 512, 1920, 16.1, 18.9, "N/A", false, true, false},
-        {"MSI Modern 14 B5M-242IN", "MSI", 34307, "AMD Hexa Core Ryzen 5 2.1 GHz", "AMD", 6, 8, 512, 1920, 14, 18.1, "N/A", false, true, false},
         {"Apple MacBook Pro M1 Pro MK193HN/A Ultrabook", "Apple", 236, "Apple M1 Pro 2.3 GHz", "Apple", 8, 16, 1024, 3456, 16.2, 16.8, "N/A", false, false, false},
         {"Asus TUF Gaming FX506HCB-HN225T", "Asus", 79939, "Intel Core i7 11th Gen 4.7 GHz", "Intel", 6, 16, 1024, 1920, 15.6, 22, "N/A", false, false, true},
         {"HP Spectre x360 14-eu0556TU (9T8K6PA)", "HP", 168990, "Intel Core Ultra 7 4.8 GHz", "Intel", 8, 32, 1024, 2880, 14, 1.44, "N/A", true, false, false},
